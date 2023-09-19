@@ -4,4 +4,5 @@ and a float bas arguments and returns their sum as a float"""
 
 
 def add(a: float, b: float) -> float:
+    """add function"""
     return a+b
