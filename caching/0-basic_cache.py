@@ -1,18 +1,11 @@
 #!/usr/bin/env python3
 """Basic dictionary"""
 
-from functools import lru_cache
-BaseCaching = __import__('base_caching').BaseCaching
+from base_caching import BaseCaching
 
 
-@lru_cache(maxsize=None)
 class BasicCache (BaseCaching):
     """Basic dictionary"""
-
-    def __init__(self):
-        """ Initiliaze
-        """
-        self.cache_data = {}
 
     def put(self, key, item):
         """ Add an item in the cache
