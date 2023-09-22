@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Basic dictionary"""
 
-from functools import cache
-BaseCaching=__import__("base_caching").BaseCaching
+from functools import lru_cache
+BaseCaching = __import__("base_caching").BaseCaching
 
 
-@cache
+@lru_cache(maxsize=None)
 class BasicCache (BaseCaching):
     """Basic dictionary"""
 
