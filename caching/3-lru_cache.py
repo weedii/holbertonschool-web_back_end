@@ -8,7 +8,8 @@ class LRUCache (BaseCaching):
     """LRU Caching"""
 
     def __init__(self):
-        """Init"""
+        """Initiliaze
+        """
         super().__init__()
 
     def put(self, key, item):
