@@ -2,7 +2,7 @@
 """Basic dictionary"""
 
 from functools import lru_cache
-BaseCaching = __import__("base_caching").BaseCaching
+BaseCaching = __import__('base_caching').BaseCaching
 
 
 @lru_cache(maxsize=None)
