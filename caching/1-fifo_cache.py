@@ -19,7 +19,9 @@ class FIFOCache(BaseCaching):
             firstKey = next(iter(self.cache_data))
             print(f"DISCARD: {firstKey}")
             self.cache_data.pop(firstKey)
-        elif key and item:
+        elif not key or not item:
+            pass
+        else:
             self.cache_data[key] = item
 
     def get(self, key):
