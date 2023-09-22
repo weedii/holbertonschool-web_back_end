@@ -15,7 +15,7 @@ class FIFOCache(BaseCaching):
     def put(self, key, item):
         """ Add an item in the cache
         """
-        if (len(self.cache_data) >= BaseCaching.MAX_ITEMS):
+        if (len(self.cache_data) > BaseCaching.MAX_ITEMS):
             firstKey = next(iter(self.cache_data))
             print(f"DISCARD: {firstKey}")
             self.cache_data.pop(firstKey)
