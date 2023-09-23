@@ -17,7 +17,7 @@ class LRUCache (BaseCaching):
         """
         if key and item:
             self.cache_data[key] = item
-        if (len(self.cache_data) > BaseCaching.MAX_ITEMS):
+        if (len(self.cache_data) >= BaseCaching.MAX_ITEMS):
             leastKey = next(iter(self.cache_data))
             print(f"DISCARD: {leastKey}")
             del self.cache_data[leastKey]
