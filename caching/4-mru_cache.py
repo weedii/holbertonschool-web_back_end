@@ -17,11 +17,11 @@ class MRUCache(BaseCaching):
         """
         if key and item:
             self.cache_data[key] = item
-        if (len(self.cache_data) > BaseCaching.MAX_ITEMS):
-            leastKey = next(iter(self.cache_data))
-            print(f"DISCARD: {leastKey}")
-            del self.cache_data[leastKey]
-        if not key or not item:
+            if (len(self.cache_data) > BaseCaching.MAX_ITEMS):
+                leastKey = next(iter(self.cache_data))
+                print(f"DISCARD: {leastKey}")
+                del self.cache_data[leastKey]
+        else:
             pass
 
     def get(self, key):
