@@ -15,14 +15,13 @@ class LRUCache (BaseCaching):
     def put(self, key, item):
         """ Add an item in the cache
         """
-        i = 0
         if key and item:
             self.cache_data[key] = item
-            if (len(self.cache_data)-1 > BaseCaching.MAX_ITEMS):
-                leastKey = next(iter(self.cache_data))
-                print(f"DISCARD: {leastKey}")
-                del self.cache_data[leastKey]
-        else:
+        if (len(self.cache_data) > BaseCaching.MAX_ITEMS):
+            leastKey = next(iter(self.cache_data))
+            print(f"DISCARD: {leastKey}")
+            del self.cache_data[leastKey]
+        if not key or not item:
             pass
 
     def get(self, key):
