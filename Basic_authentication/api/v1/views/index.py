@@ -16,8 +16,8 @@ def status() -> str:
     return jsonify({"status": "OK"})
 
 
-@index.route('/api/v1/unauthorized', methods=['GET'], endpoint='status1')
-def status1() -> str:
+@index.route('/api/v1/unauthorized', methods=['GET'])
+def unauthorized() -> str:
     """ GET /api/v1/unauthorized
     """
     abort(401)
