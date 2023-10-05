@@ -41,15 +41,16 @@ def access(error) -> str:
 def before_request():
     """before_request function"""
     AUTH_TYPE = getenv("AUTH_TYPE")
-    auth = Auth(AUTH_TYPE)
-    exist = auth.require_auth(
-        request.path, ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/'])
-    authorization_header = auth.authorization_header(request)
-    if authorization_header is None:
-        abort(401)
-    current_user = auth.current_user(request)
-    if current_user is None:
-        abort(403)
+    if AUTH_TYPE:
+        auth = Auth(AUTH_TYPE)
+        exist = auth.require_auth(
+            request.path, ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/'])
+        authorization_header = auth.authorization_header(request)
+        if authorization_header is None:
+            abort(401)
+        current_user = auth.current_user(request)
+        if current_user is None:
+            abort(403)
 
 
 if __name__ == "__main__":
