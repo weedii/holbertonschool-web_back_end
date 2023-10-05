@@ -12,10 +12,11 @@ class Auth():
         """require_auth method"""
         if path is None or excluded_paths is None or len(excluded_paths) == 0:
             return True
-        if path in excluded_paths:
-            return False
-        else:
-            return True
+        for i in range(excluded_paths):
+            if excluded_paths[i].rstrip('/') == path:
+                return False
+            else:
+                return True
 
     def authorization_header(self, request=request) -> str:
         """authorization_header method"""
