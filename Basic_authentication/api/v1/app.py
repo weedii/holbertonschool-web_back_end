@@ -55,5 +55,5 @@ if __name__ == "__main__":
     port = getenv("API_PORT", "5000")
     AUTH_TYPE = getenv("AUTH_TYPE")
     if AUTH_TYPE:
-        auth = Auth(AUTH_TYPE)
+        auth = Auth()
     app.run(host=host, port=port)
