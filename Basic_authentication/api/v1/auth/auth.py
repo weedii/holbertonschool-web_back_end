@@ -15,8 +15,7 @@ class Auth():
         for i in range(len(excluded_paths)):
             if excluded_paths[i].rstrip('/') == path:
                 return False
-            else:
-                return True
+        return True
 
     def authorization_header(self, request=request) -> str:
         """authorization_header method"""
