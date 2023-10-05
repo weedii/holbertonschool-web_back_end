@@ -12,7 +12,7 @@ class Auth():
         """require_auth method"""
         if path is None or excluded_paths is None or len(excluded_paths) == 0:
             return True
-        for i in range(excluded_paths):
+        for i in range(len(excluded_paths)):
             if excluded_paths[i].rstrip('/') == path:
                 return False
             else:
