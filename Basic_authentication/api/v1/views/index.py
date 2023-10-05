@@ -4,7 +4,7 @@
 from flask import jsonify, abort, Blueprint
 from api.v1.views import app_views
 
-index = Blueprint("index", __name__)
+index = Blueprint("index", __name__, url_prefix="/api/v1")
 
 
 @app_views.route('/status', methods=['GET'], strict_slashes=False, endpoint='status')
