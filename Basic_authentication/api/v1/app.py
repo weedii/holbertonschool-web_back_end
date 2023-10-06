@@ -47,8 +47,8 @@ def before_request():
     exist = auth.require_auth(
         request.path,
         ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/'])
-    if exist is False:
-        abort(200)
+    if exist is True:
+        pass
     authorization_header = auth.authorization_header(request)
     if authorization_header is None:
         abort(401)
