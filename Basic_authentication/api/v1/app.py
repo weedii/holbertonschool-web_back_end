@@ -44,7 +44,7 @@ def access(error) -> str:
 @app.before_request
 def before_request():
     """before_request function"""
-    exist = auth.require_auth(
+    auth.require_auth(
         request.path, ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/'])
     authorization_header = auth.authorization_header(request)
     if authorization_header is None:
