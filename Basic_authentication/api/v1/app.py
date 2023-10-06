@@ -13,7 +13,7 @@ from api.v1.auth.auth import Auth
 app = Flask(__name__)
 app.register_blueprint(app_views)
 CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
-auth = Auth
+auth = None
 
 AUTH_TYPE = getenv("AUTH_TYPE", "auth")
 if AUTH_TYPE:
@@ -47,7 +47,7 @@ def before_request():
     exist = auth.require_auth(
         request.path,
         ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/'])
-    if exist is False:
+    if exist is True:
         return 200
     authorization_header = auth.authorization_header(request)
     if authorization_header is None:
