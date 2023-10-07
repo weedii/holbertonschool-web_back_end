@@ -66,8 +66,8 @@ class BasicAuth (Auth):
         for i in user:
             print(i)
         print("----")
+        print(user_email)
         if user:
-            print(user_email)
             if User.is_valid_password(user_pwd):
                 return user
         return None
