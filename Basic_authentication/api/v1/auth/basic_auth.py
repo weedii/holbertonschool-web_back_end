@@ -74,17 +74,11 @@ class BasicAuth (Auth):
         """current_user method hat overloads Auth
         and retrieves the User instance for a request"""
 
-        authorization = self.authorization_header(request)
-        if not authorization:
+        authHeader = self.authorization_header(request)
+        base64AuthHeader = self.extract_base64_authorization_header(authHeader)
+        decodedAuthHeader = self.decode_base64_authorization_header(
+            base64AuthHeader)
+        userEmail, userPwd = self.extract_user_credentials(decodedAuthHeader)
+        if not userEmail or not userPwd:
             return None
-        extract = self.extract_base64_authorization_header(authorization)
-        if not extract:
-            return None
-        decode_base64 = self.decode_base64_authorization_header(extract)
-        if not decode_base64:
-            return None
-        email, pwd = self.extract_user_credentials(decode_base64)
-        if not email or not pwd:
-            return None
-        user = self.user_object_from_credentials(email, pwd)
-        return user
+        return self.user_object_from_credentials(userEmail, userPwd)
