@@ -3,6 +3,7 @@
 
 from api.v1.auth.auth import Auth
 import re
+import base64
 
 
 class BasicAuth (Auth):
@@ -19,3 +20,18 @@ class BasicAuth (Auth):
             return None
         Base64 = re.split(' ', authorization_header)
         return Base64[1]
+
+    def decode_base64_authorization_header(self,
+                                           base64_authorization_header: str) -> str:
+        """decode_base64_authorization_header that returns the
+        decoded value of a Base64 string base64_authorization_header"""
+
+        if base64_authorization_header is None or (type(base64_authorization_header) != str):
+            return None
+        try:
+            decodeStr = base64.b64decode(base64_authorization_header)
+            print(decodeStr)
+            return decodeStr
+
+        except:
+            return None
