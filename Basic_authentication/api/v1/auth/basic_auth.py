@@ -48,4 +48,4 @@ class BasicAuth (Auth):
             res = re.split(':', decoded_base64_authorization_header)
             return res[0], res[1]
         else:
-            return None
+            return None, None
