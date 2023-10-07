@@ -29,9 +29,9 @@ class BasicAuth (Auth):
         if base64_authorization_header is None or (type(base64_authorization_header) != str):
             return None
         try:
-            decodeStr = base64.b64decode(base64_authorization_header)
-            print(decodeStr)
-            return decodeStr
+            decodeBytes = base64.b64decode(base64_authorization_header)
+            decodedStr = decodeBytes.decode("utf-8")
+            return decodedStr
 
         except:
             return None
