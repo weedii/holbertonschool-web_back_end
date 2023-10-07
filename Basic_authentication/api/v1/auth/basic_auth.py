@@ -63,7 +63,7 @@ class BasicAuth (Auth):
             return None
         user = User.search({"email": user_email})
         print("----")
-        print(user)
+        print(User.display_name())
         print("----")
         if user:
             if User.is_valid_password(user_pwd):
