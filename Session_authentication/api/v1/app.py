@@ -54,7 +54,8 @@ def before_request():
         return
     exist = auth.require_auth(
         request.path,
-        ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/'])
+        ['/api/v1/status/', '/api/v1/unauthorized/',
+         '/api/v1/forbidden/', "/api/v1/auth_session/login/"])
     if exist is False:
         return
     authorization_header = auth.authorization_header(request)
@@ -64,6 +65,9 @@ def before_request():
     if current_user is None:
         abort(403)
     request.current_user = current_user
+    if (authorization_header is None and
+            auth.session_cookie(request) is None):
+        abort(401)
 
 
 if __name__ == "__main__":
