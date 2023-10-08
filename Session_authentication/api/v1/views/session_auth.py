@@ -40,7 +40,8 @@ def logout():
     """ Delete /api/v1/auth_session/logout
     """
     from api.v1.app import auth
-    destroy_session = auth.destroy_session(request)
-    if not destroy_session:
+
+    delete_session = auth.destroy_session(request)
+    if delete_session is False:
         abort(404)
     return jsonify({}), 200
