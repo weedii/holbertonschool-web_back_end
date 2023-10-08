@@ -20,7 +20,8 @@ class SessionAuth(Auth):
         return sessionId
 
     def user_id_for_session_id(self, session_id: str = None) -> str:
-        """user_id_for_session_id that returns a User ID based on a Session ID"""
+        """user_id_for_session_id that returns
+        a User ID based on a Session ID"""
 
         if session_id is None or type(session_id) != str:
             return None
