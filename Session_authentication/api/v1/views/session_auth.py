@@ -35,7 +35,7 @@ def login():
     return out
 
 
-@app_views.route('/api/v1/auth_session/logout',
+@app_views.route('auth_session/logout',
                  methods=['DELETE'], strict_slashes=False)
 def logout():
     """ Delete /api/v1/auth_session/logout
