@@ -39,5 +39,6 @@ class DB:
         session_id = self._session
         self.i += 1
         user = User(id=self.i, email=email,
-                    hashed_password=hashed_password, session_id=session_id, reset_token="")
+                    hashed_password=hashed_password,
+                    session_id=session_id, reset_token="")
         return user
