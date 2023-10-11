@@ -34,7 +34,7 @@ class DB:
 
     i = 0
 
-    def add_user(self, email, hashed_password):
+    def add_user(self, email: str, hashed_password: str) -> User:
         """add_user method that returns a user object"""
         session_id = self._session
         self.i += 1
