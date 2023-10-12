@@ -2,7 +2,7 @@
 
 """DB module
 """
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, update
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.session import Session
@@ -50,3 +50,14 @@ class DB:
             if i is not None:
                 return i
         raise NoResultFound
+
+    def update_user(self, user_id: int, **kwargs) -> None:
+        """update_user method that update the user’s attributes
+        as passed in the method’s arguments then
+        commit changes to the database."""
+        user = self.find_user_by(id=user_id)
+        if user is None:
+            raise ValueError
+        self._session.execute(update(User).values(kwargs))
+        self._session.commit()
+        return None
