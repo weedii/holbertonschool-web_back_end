@@ -7,6 +7,9 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.session import Session
 from user import User
+from sqlalchemy.exc import InvalidRequestError
+from sqlalchemy.exc import NoResultFound
+from sqlalchemy import select
 
 from user import Base
 
@@ -32,13 +35,19 @@ class DB:
             self.__session = DBSession()
         return self.__session
 
-    i = 0
-
     def add_user(self, email: str, hashed_password: str) -> User:
         """add_user method that returns a user object"""
-        session_id = self._session
-        self.i += 1
-        user = User(id=self.i, email=email,
-                    hashed_password=hashed_password,
-                    session_id=session_id, reset_token="")
+        user = User(email=email, hashed_password=hashed_password)
+        self._session.add(user)
+        self._session.commit()
         return user
+
+    def find_user_by(self, **kwargs) -> User:
+        """find_user_by method that return a user object based on the email"""
+        if kwargs is None:
+            raise InvalidRequestError
+        user = self._session.query(User).filter_by(**kwargs)
+        for i in user:
+            if i is not None:
+                return i
+        raise NoResultFound
