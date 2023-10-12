@@ -5,12 +5,14 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
+hello = {"message": "Bienvenue"}
+
 app.route('/', methods=["GET"])
 
 
 def bienvenue():
     """bienvenue method"""
-    return jsonify({"message": "Bienvenue"})
+    return jsonify(hello)
 
 
 if __name__ == "__main__":
