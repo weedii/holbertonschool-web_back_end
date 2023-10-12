@@ -17,8 +17,9 @@ def bienvenue():
 @app.route("/users", methods=["POST"])
 def register():
     """register end-point"""
-    email = request.form.get("email")
-    password = request.form.get("password")
+    content = request.json
+    email = content["email"]
+    password = content["password"]
     try:
         user = AUTH.register_user(email, password)
         return jsonify({"email": email, "message": "user created"})
