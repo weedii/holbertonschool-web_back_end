@@ -10,7 +10,7 @@ app.route('/', methods=["GET"])
 
 def bienvenue():
     """bienvenue method"""
-    return jsonify({"message": "Bienvenue"}), 200
+    return jsonify({"message": "Bienvenue"})
 
 
 if __name__ == "__main__":
