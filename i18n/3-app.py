@@ -2,7 +2,7 @@
 """Basic Babel setup & Parametrize templates"""
 
 from flask import Flask, render_template, request
-from flask_babel import Babel,gettext
+from flask_babel import Babel, _
 
 app = Flask(__name__, template_folder="templates")
 babel = Babel(app)
@@ -16,7 +16,6 @@ class Config():
 
 
 app.config.from_object(Config)
-
 
 
 @babel.localeselector
