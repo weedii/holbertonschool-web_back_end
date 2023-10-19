@@ -16,3 +16,12 @@ class Config():
 
 
 app.config.from_object(Config)
+
+
+@app.route('/')
+def index():
+    return "yes", 200
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
