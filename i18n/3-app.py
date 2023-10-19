@@ -2,7 +2,7 @@
 """Basic Babel setup & Parametrize templates"""
 
 from flask import Flask, render_template, request
-from flask_babel import Babel
+from flask_babel import Babel,gettext
 
 app = Flask(__name__, template_folder="templates")
 babel = Babel(app)
@@ -15,7 +15,8 @@ class Config():
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
-app.config.from_object("3-index.html")
+app.config.from_object(Config)
+
 
 
 @babel.localeselector
