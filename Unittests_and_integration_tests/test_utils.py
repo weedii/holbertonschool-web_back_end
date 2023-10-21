@@ -3,7 +3,7 @@
 
 from utils import access_nested_map
 import unittest
-import parameterized
+from parameterized import parameterized
 
 
 class TestAccessNestedMap(unittest.TestCase):
