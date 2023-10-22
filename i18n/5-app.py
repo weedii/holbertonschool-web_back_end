@@ -39,10 +39,11 @@ def get_locale():
 
 def get_user():
     """get_user method"""
-    user_id = request.args.get("login_as")
-    if user_id:
+    try:
+        user_id = request.args.get("login_as")
         return users[int(user_id)]
-    return None
+    except Exception:
+        return None
 
 
 @app.before_request
