@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Basic Babel setup & Parametrize templates"""
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, g
 from flask_babel import Babel
 
 app = Flask(__name__, template_folder="templates")
@@ -35,6 +35,20 @@ def get_locale():
         if locale in Config.LANGUAGES:
             return locale
     return request.accept_languages.best_match(Config.LANGUAGES)
+
+
+def get_user():
+    """get_user method"""
+    user_id = request.args.get("login_as")
+    if user_id:
+        return users[int(user_id)]
+    return None
+
+
+@app.before_request
+def before_request():
+    """before_request method"""
+    g.user = get_user()
 
 
 @app.route('/')
