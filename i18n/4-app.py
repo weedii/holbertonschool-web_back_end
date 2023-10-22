@@ -22,9 +22,10 @@ app.config.from_object(Config)
 def get_locale():
     """get_locale method that determine the best match
     with our supported languages for the client's browser"""
-    locale = request.args.get("locale")
-    if locale in Config.LANGUAGES:
-        return locale
+    if "locale" in request.args:
+        locale = request.args['locale']
+        if locale in Config.LANGUAGES:
+            return locale
     return request.accept_languages.best_match(Config.LANGUAGES)
 
 
