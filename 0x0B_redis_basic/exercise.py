@@ -37,7 +37,7 @@ class Cache():
 
     def get_str(self, key: str) -> str:
         """will automatically parametrize Cache.get"""
-        self.get(key, fn=str)
+        self.get(key, fn=lambda d: d.decode("utf-8"))
 
     def get_int(self, key: str) -> int:
         """will automatically parametrize Cache.get"""
