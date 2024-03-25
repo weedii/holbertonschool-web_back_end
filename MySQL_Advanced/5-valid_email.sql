@@ -3,6 +3,7 @@
 DELIMITER //
 
 CREATE TRIGGER reset_valid_email
+-- test test test test
 AFTER UPDATE ON users
 FOR EACH ROW
 BEGIN
