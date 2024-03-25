@@ -24,7 +24,7 @@ class Cache():
         self._redis.set(key, data)
         return key
 
-    def get(self, key: str, fn: Callable) -> Union[str, bytes, int, float]:
+    def get(self, key: str, fn: Callable) -> Union[str, bytes, int, float, None]:
         """will return converted data back to the desired format"""
         data = self._redis.get(key)
         if data is None:
@@ -37,7 +37,7 @@ class Cache():
 
     def get_str(self, key: str) -> str:
         """will automatically parametrize Cache.get"""
-        self.get(key, fn=lambda d: d.decode("utf-8"))
+        self.get(key, fn=str)
 
     def get_int(self, key: str) -> int:
         """will automatically parametrize Cache.get"""
