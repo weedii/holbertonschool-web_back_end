@@ -3,8 +3,8 @@
 DELIMITER //
 
 CREATE TRIGGER reset_valid_email
--- test test test test
 AFTER UPDATE ON users
+-- test test test test
 FOR EACH ROW
 BEGIN
     IF NEW.email != OLD.email THEN
