@@ -4,11 +4,12 @@ import uuid
 from typing import Union
 
 """
-Cach Class
+Cache Class
 """
 
 
 class Cache():
+    """Cache Class"""
 
     def __init__(self):
         """__init__ method"""
