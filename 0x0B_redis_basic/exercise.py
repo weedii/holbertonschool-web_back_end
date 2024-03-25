@@ -24,7 +24,7 @@ class Cache():
         self._redis.set(key, data)
         return key
 
-    def get(self, key: str, fn: Callable) -> Union[str, bytes, int, float, None]:
+    def get(self, key: str, fn: Callable = None) -> Union[str, bytes, int, float, None]:
         """will return converted data back to the desired format"""
         data = self._redis.get(key)
         if data is None:
