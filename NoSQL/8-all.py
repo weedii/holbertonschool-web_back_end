@@ -10,4 +10,4 @@ def list_all(mongo_collection):
     if docs.count() == 0:
         return []
     
-    return docs
+    return list(docs)
