@@ -7,7 +7,7 @@ function that lists all documents in a collection
 def list_all(mongo_collection):
     docs = mongo_collection.find()
 
-    if not docs:
-        return []
-    else:
+    if docs:
         return list(docs)
+    else:
+        return []
