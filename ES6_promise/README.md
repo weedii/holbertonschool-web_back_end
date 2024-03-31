@@ -8,3 +8,4 @@
 - Throw / Try
 - The await operator
 - How to use an async function
+
