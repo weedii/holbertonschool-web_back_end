@@ -8,6 +8,7 @@ export default class HolbertonCourse {
   set name(namee) {
     this._name = this.checkString(namee);
   }
+
   get name() {
     return this._name;
   }
@@ -15,6 +16,7 @@ export default class HolbertonCourse {
   set length(lengthh) {
     this._length = this.checkNumber(lengthh);
   }
+
   get length() {
     return this._length;
   }
@@ -22,6 +24,7 @@ export default class HolbertonCourse {
   set students(studentss) {
     this._students = this.checkArrayOfStrings(students);
   }
+  
   get students() {
     return this._students;
   }
