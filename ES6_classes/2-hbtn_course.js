@@ -18,18 +18,18 @@ export default class HolbertonCourse {
   }
 
   checkString(str) {
-    if (typeof of(str) === "string") return str;
+    if (typeof (str) === 'string') return str;
     else throw new TypeError(`${str} must be a string`);
   }
 
   checkNumber(x) {
-    if (typeof of(x) === "number") return x;
+    if (typeof (x) === 'number') return x;
     else throw new TypeError(`${x} must be a string`);
   }
 
   checkArrayOfStrings(arr) {
-    if (Array.isArray(arr) && arr.every((item) => typeof item === "string"))
+    if (Array.isArray(arr) && arr.every((item) => typeof item === 'string'))
       return arr;
-    else throw new TypeError("students must be an array string");
+    else throw new TypeError('students must be an array string');
   }
 }
