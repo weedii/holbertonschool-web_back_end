@@ -22,26 +22,26 @@ export default class HolbertonCourse {
   }
 
   set students(studentss) {
-    this._students = this.checkArrayOfStrings(students);
+    this._students = this.checkArrayOfStrings(studentss);
   }
-  
+
   get students() {
     return this._students;
   }
 
   checkString(str) {
-    if (typeof str === 'string') return str;
-    else throw new TypeError('Name must be a string');
+    if (typeof str !== 'string') throw new TypeError('Name must be a string');
+    return str;
   }
 
   checkNumber(x) {
-    if (typeof x === 'number') return x;
-    else throw new TypeError('Length must be a string');
+    if (typeof x !== 'number') throw new TypeError('Length must be a string');
+    return x;
   }
 
   checkArrayOfStrings(arr) {
-    if (Array.isArray(arr) && arr.every((item) => typeof item === 'string'))
-      return arr;
-    else throw new TypeError('students must be an array string');
+    if (!Array.isArray(arr) && !arr.every((item) => typeof item === 'string'))
+      throw new TypeError('students must be an array string');
+    return arr;
   }
 }
