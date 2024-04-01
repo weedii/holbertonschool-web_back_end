@@ -35,7 +35,7 @@ export default class HolbertonCourse {
   }
 
   checkNumber(x) {
-    if (typeof x !== 'number') throw new TypeError('Length must be a string');
+    if (typeof x !== 'number') throw new TypeError('Length must be a number');
     return x;
   }
 
