@@ -5,24 +5,24 @@ export default class HolbertonCourse {
     this._students = this.checkArrayOfStrings(students);
   }
 
-  set name(name) {
-    this._name = this.checkString(name);
+  set name(namee) {
+    this._name = this.checkString(namee);
   }
 
   get name() {
     return this._name;
   }
 
-  set length(length) {
-    this._length = this.checkNumber(length);
+  set length(lengthh) {
+    this._length = this.checkNumber(lengthh);
   }
 
   get length() {
     return this._length;
   }
 
-  set students(students) {
-    this._students = this.checkArrayOfStrings(students);
+  set students(studentss) {
+    this._students = this.checkArrayOfStrings(studentss);
   }
 
   get students() {
@@ -35,14 +35,13 @@ export default class HolbertonCourse {
   }
 
   checkNumber(x) {
-    if (typeof x !== 'number') throw new TypeError('Length must be a number');
+    if (typeof x !== 'number') throw new TypeError('Length must be a string');
     return x;
   }
 
   checkArrayOfStrings(arr) {
-    if (!Array.isArray(arr) || !arr.every((item) => typeof item === 'string')) {
-      throw new TypeError('Students must be an array of strings');
-    }
+    if (!Array.isArray(arr) && !arr.every((item) => typeof item === 'string'))
+      throw new TypeError('students must be an array string');
     return arr;
   }
 }
