@@ -29,11 +29,11 @@ export default class HolbertonCourse {
     return this._students;
   }
 
-  checkString(str) {
-    if (typeof str !== 'string') {
+  checkString(name) {
+    if (typeof name !== 'string') {
       throw new TypeError('Name must be a string');
     }
-    return str;
+    return name;
   }
 
   checkNumber(x) {
