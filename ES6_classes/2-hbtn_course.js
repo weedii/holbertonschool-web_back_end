@@ -1,6 +1,6 @@
 export default class HolbertonCourse {
   constructor(name, length, students) {
-    this._name = this.checkString(name);
+    this._name = name;
     this._length = this.checkNumber(length);
     this._students = this.checkArrayOfStrings(students);
   }
@@ -29,11 +29,11 @@ export default class HolbertonCourse {
     return this._students;
   }
 
-  checkString(name) {
-    if (typeof name !== 'string') {
+  checkString(str) {
+    if (typeof str !== 'string') {
       throw new TypeError('Name must be a string');
     }
-    return name;
+    return str;
   }
 
   checkNumber(x) {
