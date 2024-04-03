@@ -1,6 +1,10 @@
 export default function cleanSet(set, startString) {
   let str = '';
 
+  if (!startString) {
+    return '';
+  }
+
   for (const item of set) {
     if (startString && item.startsWith(startString)) {
       str += item.slice(startString.length) + '-';
